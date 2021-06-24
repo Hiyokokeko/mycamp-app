@@ -3,30 +3,36 @@
     <div>
       <Logo />
       <h1 class="title">mycamp-app</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <h2 class="subtitle">
+        {{ subTitle }}
+      </h2>
+      <button @click="getSomething">タスク取得</button>
+      <!-- 取得したtasksをリスト形式で表示する -->
+      <ul v-for="task in tasks" :key="task.id">
+        <li style="text-align: left">{{ task.title }}</li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      subTitle: "mycamp is good service!!",
+      tasks: [],
+    };
+  },
+  methods: {
+    async getSomething() {
+      // タスク一覧を取得するためのAPIを叩く
+      const response = await this.$axios.$get(
+        "http://localhost:3000/api/v1/tasks"
+      );
+      this.tasks = JSON.parse(response.tasks);
+    },
+  },
+};
 </script>
 
 <style>
