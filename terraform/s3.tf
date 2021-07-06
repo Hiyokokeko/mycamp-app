@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "mycamp-s3-bucket" {
 }
 
 # ログバケット
-resource "aws_s3_bucket" "mycamp_alb_log" {
+resource "aws_s3_bucket" "mycamp-alb-log" {
   bucket = "artifact-terraform-for-mycamp"
 
   lifecycle_rule {
