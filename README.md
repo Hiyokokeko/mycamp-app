@@ -38,7 +38,7 @@ https://github.com/Hiyokokeko/realcampgears.git
 
 ## AWS 構成図（作成中）
 
-![aws構成図]()
+![aws構成図](https://user-images.githubusercontent.com/62534064/142761057-c44a7f9a-f133-4e16-aed2-75207ecb7fc4.png)
 
 ## 機能一覧（予定）
 
